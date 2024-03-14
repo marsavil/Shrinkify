@@ -1,5 +1,5 @@
 "use client";
-
+import styles from './accountProfile.module.css'
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserValidation } from "@/lib/validations/user";
@@ -10,9 +10,9 @@ import { isBase64Image } from "@/lib/utils";
 import { useUploadThing } from '@/lib/uploadthing'
 import { updateUser } from "@/lib/actions/user.actions";
 import { usePathname, useRouter } from "next/navigation";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "../ui/form";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "../../ui/form";
+import { Button } from "../../ui/button";
+import { Input } from "../../ui/input";
 
 interface Props {
   user: {
@@ -88,14 +88,14 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col justify-start gap-10"
+        className={styles.formContainer}
       >
         <FormField
           control={form.control}
           name="profile_photo"
           render={({ field }) => (
-            <FormItem className="flex items-center gap-4">
-              <FormLabel className="account-form_image-label">
+            <FormItem className={styles.imageContainer}>
+              <FormLabel className={styles.imageLabel}>
                 {field.value ? (
                   <Image
                     src={field.value}
@@ -103,7 +103,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     width={96}
                     height={96}
                     priority
-                    className="rounded-full object-contain"
+                    className={styles.profileImage}
                   />
                 ) : (
                   <Image
@@ -111,16 +111,16 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     alt="profile photo"
                     width={24}
                     height={24}
-                    className="object-contain"
+                    className={styles.profileImage}
                   />
                 )}
               </FormLabel>
-              <FormControl className="flex-1 text-base-semibold text-gray-200">
+              <FormControl className={styles.formControl}>
                 <Input
                   placeholder="Upload a photo"
                   type="file"
                   accept="image/*"
-                  className="account-form_image-input"
+                  className={styles.input}
                   onChange={(e) => handleImage(e, field.onChange)}
                 />
               </FormControl>
@@ -132,15 +132,15 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           control={form.control}
           name="name"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-3 w-full">
-              <FormLabel className="text-base-semibold text-light-2">
+            <FormItem className={styles.nameFormItem}>
+              <FormLabel className={styles.textLight2}>
                 Name
               </FormLabel>
               <FormControl>
                 <Input
                   placeholder="Write your name"
                   type="text"
-                  className="account-form_input no-focus"
+                  className={styles.noFocus}
                   {...field}
                 />
               </FormControl>
@@ -152,15 +152,15 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           control={form.control}
           name="username"
           render={({ field }) => (
-            <FormItem className="flex flex-col gap-3 w-full">
-              <FormLabel className="text-base-semibold text-light-2">
+            <FormItem className={styles.nameFormItem}>
+              <FormLabel className={styles.textLight2}>
                 Username
               </FormLabel>
               <FormControl>
                 <Input
                   placeholder="Write your username"
                   type="text"
-                  className="account-form_input no-focus"
+                  className={styles.noFocus}
                   {...field}
                 />
               </FormControl>
@@ -168,7 +168,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="bg-primary-500">
+        <Button type="submit" className={styles.btn}>
           Submit
         </Button>
       </form>

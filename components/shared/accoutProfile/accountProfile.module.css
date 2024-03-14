@@ -1,0 +1,62 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2.5rem; /* Espacio entre elementos equivalente a gap-10 en Tailwind CSS */;
+}
+.imageContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espacio entre elementos equivalente a gap-4 en Tailwind CSS */
+}
+.imageLabel {
+  display: flex;
+  height: 6rem; /* 24 pixels * 6 = 144 pixels */
+  width: 6rem; /* 24 pixels * 6 = 144 pixels */
+  align-items: center;
+  justify-content: center;
+  border-radius: 100% ;
+  background-color: #1a202c; /* Cambia este color según tus necesidades */
+}
+.profileImage {
+  border-radius: 100%;
+  object-fit: contain;
+}
+.formControl {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cbd5e0;
+}
+.input {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  fill: blue !important; /* Cambia el color del texto según tus necesidades */
+}
+.nameFormItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Puedes ajustar el espacio entre elementos según tus necesidades */
+  width: 100%;
+}
+.textLight2 {
+  font-size: 1rem; /* Puedes ajustar el tamaño de fuente según tus necesidades */
+  font-weight: 600; /* Este valor puede variar según el espesor deseado */
+  color: #CBD5E0; /* Este es un ejemplo de color. Puedes cambiarlo según tus necesidades */
+}
+.noFocus {
+  border: 1px solid #2D3748; /* Color del borde */
+  background-color: #4A5568; /* Color de fondo */
+  color: #CBD5E0; /* Color del texto */
+  outline: none; /* Quita el contorno al hacer clic */
+  padding: 5px;
+}
+.btn {
+  background-color: #0b311f;
+  padding: 7px
+}

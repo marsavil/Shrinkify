@@ -1,0 +1,29 @@
+.mainContainer {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 48rem; /* equivalente a max-w-3xl en Tailwind CSS */
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 2.5rem; /* equivalente a px-10 en Tailwind CSS */
+  padding-right: 2.5rem; /* equivalente a px-10 en Tailwind CSS */
+  padding-top: 5rem; /* equivalente a py-20 en Tailwind CSS */
+  padding-bottom: 5rem; /* equivalente a py-20 en Tailwind CSS */
+}
+.heading {
+  font-size: 2rem; /* Tamaño de fuente equivalente a text-heading2 en Tailwind CSS */
+  font-weight: 700; /* Grosor de fuente equivalente a text-bold en Tailwind CSS */
+  color: #f3f4f6; /* Color de texto equivalente a text-light-1 en Tailwind CSS */
+}
+.description {
+  margin-top: 0.75rem; /* Espacio superior equivalente a mt-3 en Tailwind CSS */
+  font-size: 1rem; /* Tamaño de fuente equivalente a text-base en Tailwind CSS */
+  font-weight: 400; /* Grosor de fuente equivalente a regular en Tailwind CSS */
+  color: #61bd92; /* Color de texto equivalente a text-light-2 en Tailwind CSS */
+}
+.container {
+  margin-top: 2.25rem; /* Espacio superior equivalente a mt-9 en Tailwind CSS */
+  background-color: #153834; /* Color de fondo equivalente a bg-dark-2 en Tailwind CSS */
+  padding: 2.5rem; /* Relleno equivalente a p-10 en Tailwind CSS */
+  border-radius: 7.5px;
+}
