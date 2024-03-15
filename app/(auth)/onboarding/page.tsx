@@ -20,7 +20,7 @@ export default async function Page() {
   return (
     <main className={styles.mainContainer}>
       <h1 className={styles.heading}>Onboarding</h1>
-      <p className={styles.description}>Complete your profile now to use Threads</p>
+      <p className={styles.description}>Complete your profile to continue</p>
       <section className={styles.container}>
         <AccountProfile 
           user={ userData }
