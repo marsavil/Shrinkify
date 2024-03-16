@@ -8,12 +8,16 @@ import { fetchUser } from "./user.actions";
 export async function generateLink (url: string, userId: string){
   console.log(url, userId)
   const shortUrl = Math.random().toString(36).substring(2,7);
+  let verifiedUrl= ''
+  url.startsWith('www.') ? verifiedUrl = url.slice(4, url.length) : verifiedUrl = url
+
   try {
     connectToDB();
+
     const user = await fetchUser(userId);
     console.log(user)
     const link = await Link.create({
-      url,
+      url: verifiedUrl,
       shortUrl,
     })
     console.log(user._id)
@@ -36,11 +40,11 @@ export async function fetchLink (id: string){
       path: "user",
       model: User,
       select: "id username name image"})
-      .populate({
-        path: "links",
-        model: Link,
-        select: "_id url shortUrl"
-      })
+      // .populate({
+      //   path: "links",
+      //   model: Link,
+      //   select: "_id url shortUrl"
+      // })
       link.clicks = link.clicks + 1;
       console.log(link.url)
       link.save();

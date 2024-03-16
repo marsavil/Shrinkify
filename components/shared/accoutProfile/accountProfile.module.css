@@ -36,7 +36,6 @@
   border: none;
   background-color: transparent;
   outline: none;
-  fill: blue !important; /* Cambia el color del texto según tus necesidades */
 }
 .nameFormItem {
   display: flex;

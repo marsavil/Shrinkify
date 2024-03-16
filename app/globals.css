@@ -1,5 +1,15 @@
+@import 'normalize.css';
+html {
+  box-sizing: border-box;
+}
 body {
   background-color: #000;
+  margin: 0;
+  text-decoration: none !important;
+}
+.main_container {
+  display: flex;
+  position: relative;
 }
 .layout_main {
   display: flex;
@@ -19,7 +29,8 @@ body {
 }
 .layout_primary {
   position: sticky;
-  width: 100%;
+  display: flex;
+  flex-grow: 1;
   top: 0;
   z-index: 30;
   box-sizing: border-box;
@@ -27,7 +38,16 @@ body {
 .layout_wrapper {
   display: flex;
   flex-flow: row;
+  align-items: center;
+  justify-content: flex-end;
   flex:1;
   min-height: 0;
   background-color: #202020;
+}
+@media screen and (min-width: 769p) {
+  .layout_wrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
 }

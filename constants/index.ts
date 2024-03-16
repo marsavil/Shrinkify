@@ -3,6 +3,7 @@ export const sideNavLinks = [
     imgURL: "/assets/home.svg",
     route: '/home',
     label: "Home",
+    icon: 'AiOutlineHome'
   },
   {
     imgURL: "/assets/links.svg",

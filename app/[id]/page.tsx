@@ -4,10 +4,10 @@
 // import { NextResponse } from "next/server";
 
 
-// export default async function Page ({ params }: { params :{ shortId:string}}){
+// export default async function Page ({ params }: { params :{ id:string}}){
 //   console.log (params)
 //   try {
-//     const url = await fetchLink(params.shortId)
+//     const url = await fetchLink(params.id)
 //   console.log
 //   if (url === null) {
 //     redirect('/');
@@ -41,24 +41,24 @@ import { fetchLink } from "@/lib/actions/link.actions";
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-export default function Page({ params }: { params: { shortId: string } }) {
+export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter();
-  console.log(params.shortId)
+  console.log(params.id)
   useEffect(() => {
     async function redirectUrl() {
-      const url = await fetchLink(params.shortId);
+      const url = await fetchLink(params.id);
       if (url === null) {
         router.push('/');
       } else {
         // Verificar si la URL comienza con http:// o https://
-        const prefixedUrl = url.startsWith('http://www.') || url.startsWith('https://www.') ? url : `https://www.${url}`;
+        const prefixedUrl = url.startsWith('http://www.') || url.startsWith('https://www.')  ? url : `https://www.${url}`;
         router.push(prefixedUrl);
       }
     }
     if (router) {
       redirectUrl();
     }
-  }, [params.shortId, router]);
+  }, [params.id, router]);
   return null;
   // return (
   //   <div>

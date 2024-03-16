@@ -3,9 +3,11 @@ import { generateLink } from "@/lib/actions/link.actions";
 import styles from "./page.module.css";
 import { useState, useRef, useEffect, FormEvent } from "react";
 import { useAuth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 export default  function Home() {
   const { userId } = useAuth()
+  //if (userId) redirect(`/${userId}/home`)
   const inputRef = useRef<HTMLInputElement>(null); // Inicializa inputRef con null
   const [shortUrl, setShortUrl] = useState("");
   const baseUrl = process.env.NEXT_PUBLIC_SHRINK

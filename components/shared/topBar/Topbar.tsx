@@ -38,7 +38,12 @@ const Topbar = ({ userId }: { userId: string }) => {
 
   const handleSearchClick = () => {
     setShowSearchInput(true); // Mostrar el input de búsqueda al hacer clic en el icono de búsqueda
+
+    setTimeout(() => {
+      setShowSearchInput(false);
+    }, 5000);
   };
+
 
   return (
     <nav className={styles.topbar}>

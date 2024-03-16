@@ -9,10 +9,11 @@
   background-color: #131212;
   border-bottom: 0.1rem solid #397a4e;
 }
+
 .user {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 10px;
 }
 .username {
   font-size: 1rem;
@@ -23,7 +24,7 @@
   position: relative;
   display: flex;
   justify-content: start;
-  gap: 8px;
+  gap: 30px;
   align-items: center;
 }
 .search_input {
@@ -44,4 +45,26 @@
   font-weight: 600;
   color: #5bd375;
   cursor: pointer;
+}
+@media screen and (max-width: 425px) {
+  .username {
+    display: none;
+  }
+  .logout {
+    display: none;
+  }
+  .search_input {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .username {
+    display: none;
+  }
+  .logout {
+    display: none;
+  }
+  .search_input {
+    width: 50px;
+  }
 }
