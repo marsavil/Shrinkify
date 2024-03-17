@@ -36,7 +36,7 @@ const Link_Shortener = ({ userId }: { userId: string }) => {
           ref={inputRef}
           type="text"
           className={styles.input} // Corrige el nombre de la clase aquí
-          placeholder="U R L"
+          placeholder="https://example.com/insanely-long-url"
         />
         <button className={styles.button}>Shrink</button>{" "}
         {/* Corrige el nombre de la clase aquí */}
