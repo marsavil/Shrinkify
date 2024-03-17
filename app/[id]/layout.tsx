@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ClerkProvider, currentUser } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import SideNav from "@/components/shared/sideNav/SideNav";
 import Topbar from "@/components/shared/topBar/Topbar";
 
@@ -19,12 +19,16 @@ export default async function RootLayout({
 }>) {
   const user = await currentUser();
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${inter.className} `}>
-          {children}
-        </body>
-      </html>
-    </ClerkProvider>
+          <div className="main_container">
+            <div className='layout_main'>
+              <div className="layout_primary">
+              <Topbar userId={user?.id || ''} />
+              </div>
+              <div className="layout_wrapper">
+              {children}
+              </div>
+            </div>
+            <SideNav />
+          </div>
   );
 }

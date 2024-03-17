@@ -1,46 +1,44 @@
-'use client'
+"use client";
 import { generateLink } from "@/lib/actions/link.actions";
 import styles from "./page.module.css";
 import { useState, useRef, useEffect, FormEvent } from "react";
 import { useAuth } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import Link_Shortener from "@/components/shared/linkShortener/Link_Shortener";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
-export default  function Home() {
-  const { userId } = useAuth()
-  //if (userId) redirect(`/${userId}/home`)
-  const inputRef = useRef<HTMLInputElement>(null); // Inicializa inputRef con null
-  const [shortUrl, setShortUrl] = useState("");
-  const baseUrl = process.env.NEXT_PUBLIC_SHRINK
-
-  const handleSubmit = async(e: FormEvent<HTMLFormElement>) => {
-    console.log(userId)
-    e.preventDefault();
-    const url = inputRef.current?.value; // Asegúrate de manejar el caso en que inputRef.current sea null
-    if (!url) return; // Sal de la función si la URL es falsy
-
-    //Peticion a la API
-    const newUrl = await generateLink(url, userId || '')
-    setShortUrl(newUrl.shortUrl)
-  }
-
+export default function Home() {
+  const router = useRouter();
+  const { userId } = useAuth();
+  if (userId) redirect(`/${userId}/home`)
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>Shrinkify - Url Shortener</p>
-        <div>
-          <form className={styles.input} onSubmit={handleSubmit}>
-            <input
-              ref={inputRef}
-              type="text"
-              className={styles.input} // Corrige el nombre de la clase aquí
-              placeholder="U R L"
-            />
-            <button className={styles.button}>Shrink</button> {/* Corrige el nombre de la clase aquí */}
-            {shortUrl? (<span className={styles.input}>{`${baseUrl}${shortUrl}`}</span>)
-            : <span className={styles.input}>{shortUrl}</span>}
-            
-          </form>
+      <div>
+        <h3 className={styles.introduction}>Create your own short links to share your content 🔗🚀</h3>
+      </div>
+      <div className={styles.brand}>
+        <Image 
+          src={'/assets/shrinkify_text.svg'}
+          width={200}
+          height={78}
+          alt="Brand"
+        />
+      </div>
+      <div className={styles.options}>
+        <p className={styles.message}> Feel free to start creating your links immediately, or log in to save every link you create. By logging in, you can maintain control over your links, access their performance metrics, and manage them more effectively.</p>
+        <div className={styles.login}>
+        <Button 
+          type="submit" 
+          className={styles.btn}
+          onClick={() => router.push('/sign-up')}
+        >
+          Log-in
+        </Button>
         </div>
+      </div>
+      <div className={styles.shortener}>
+        <Link_Shortener userId={userId} />
       </div>
     </main>
   );

@@ -19,11 +19,17 @@ export default function SideNav() {
         <div className={styles.menu}>
           <Image
             src="/assets/shrinkify.svg"
-            width={90}
-            height={90}
+            width={50}
+            height={50}
             alt="Shrink Logo"
             className={styles.logo}
           />
+          <Button
+          className={styles.button}
+          onClick={() => router.push(`/${userId}/links/create`)}
+          >
+          Create Link
+          </Button>
           <div className={styles.separator} />
           <div className={styles.links_group}>
             {sideNavLinks.map((link) => {
@@ -32,8 +38,8 @@ export default function SideNav() {
                   <div className={styles.link}>
                     <Image
                       src={link.imgURL}
-                      width={30}
-                      height={30}
+                      width={25}
+                      height={25}
                       alt={link.label}
                     />
                     <p className={styles.text}>{link.label}</p>
@@ -50,8 +56,8 @@ export default function SideNav() {
         </div>
         <Image
           src="/assets/shrinkify.svg"
-          width={70}
-          height={70}
+          width={40}
+          height={40}
           alt="Shrink Logo"
           className={styles.logo}
         />

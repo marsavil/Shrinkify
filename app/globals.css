@@ -10,6 +10,7 @@ body {
 .main_container {
   display: flex;
   position: relative;
+  height: 100vh;
 }
 .layout_main {
   display: flex;
@@ -41,7 +42,6 @@ body {
   align-items: center;
   justify-content: flex-end;
   flex:1;
-  min-height: 0;
   background-color: #202020;
 }
 @media screen and (min-width: 769p) {

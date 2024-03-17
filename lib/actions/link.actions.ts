@@ -10,25 +10,31 @@ export async function generateLink (url: string, userId: string){
   const shortUrl = Math.random().toString(36).substring(2,7);
   let verifiedUrl= ''
   url.startsWith('www.') ? verifiedUrl = url.slice(4, url.length) : verifiedUrl = url
-
+  console.log(userId)
   try {
     connectToDB();
 
-    const user = await fetchUser(userId);
-    console.log(user)
+    if(userId) {
+      const user = await fetchUser(userId);
+      const link = await Link.create({
+        url: verifiedUrl,
+        shortUrl,
+      })
+      if ( user ) {
+        link.user = user._id;
+        user.links.push(link._id)
+        await link.save();
+        await user.save();
+      }
+    return { url, shortUrl }
+  } else {
     const link = await Link.create({
       url: verifiedUrl,
       shortUrl,
     })
-    console.log(user._id)
-    if ( user ) {
-      link.user = user._id;
-      user.links.push(link._id)
-      await link.save();
-      await user.save();
-    }
     return { url, shortUrl }
-  } catch (error: any) {
+  } 
+}catch (error: any) {
     console.log(error.message)
     throw new Error(`Failed to generate link: ${error.message}`)
   }

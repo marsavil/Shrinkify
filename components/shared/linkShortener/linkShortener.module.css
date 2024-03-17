@@ -1,0 +1,43 @@
+.input {
+  cursor: pointer;
+  border: none;
+  height: 25px;
+  background-color:  #7eca67 ;
+  border-radius: 8px;
+  outline: none;
+  margin-right: 8px;
+}
+@media screen and (max-width: 425px){
+  .input{
+    max-width: 200px;
+  }
+}
+.button {
+  background-color: #5bd375;
+  border-radius: 8px;
+}
+.result {
+  font-size: large;
+  color: azure;
+}
+.message {
+  font-size: large;
+  color: azure;
+  justify-items: center;
+}
+.copy {
+  background-color: #000;
+}
+.result {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 25px;
+}
+@media screen and (max-width: 425px){
+  .result{
+    flex-direction: column;
+  }
+}

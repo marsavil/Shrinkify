@@ -8,6 +8,7 @@ import styles from "./page.module.css";
 export default async function Page() {
   const user = await currentUser();
   const userDB = await fetchUser(user.id);
+  console.log(userDB)
   const userData = {
     id: user?.id,
     objectId: userDB?._id,
