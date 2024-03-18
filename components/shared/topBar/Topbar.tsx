@@ -1,4 +1,6 @@
+
 "use client";
+/// <reference path="types.d.ts" />
 import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { PiSignIn, PiSignOut } from "react-icons/pi";
@@ -15,6 +17,7 @@ const Topbar = ({ userId }: { userId: string }) => {
   const [user, setUser] = useState(null);
   const [showSearchInput, setShowSearchInput] = useState(false); // Estado para controlar la visibilidad del input de búsqueda
 
+  console.log(user)
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -66,7 +69,7 @@ const Topbar = ({ userId }: { userId: string }) => {
             <div className={styles.user}>
               <UserIcon userImage={user?.image} size={30} />
               <span className={styles.username}>{user?.username}</span>
-              <SignOutButton signOutCallback={() => router.refresh()}>
+              <SignOutButton signOutCallback={() => router.push('/')}>
                 <div className={styles.user}>
                   <PiSignOut size={30} color="#5bd375" />
                   <p className={styles.logout}>Logout</p>

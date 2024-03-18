@@ -3,7 +3,6 @@ import styles from "./linkShortener.module.css";
 import { AiOutlineCopy } from "react-icons/ai";
 import { FormEvent, useRef, useState } from "react";
 import Copy_Button from "../copyButton/Copy_Button";
-import ConvertedLink from "@/components/cards/ConvertedLink";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
