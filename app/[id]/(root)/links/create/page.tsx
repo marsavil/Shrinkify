@@ -1,12 +1,13 @@
-import styles from './createLink.module.css'
+'use client'
+import Link_Shortener from "@/components/shared/linkShortener/Link_Shortener";
+import styles from './createLink.module.css';
 
-const Create_Link = () => {
+
+export default  function Home() {
 
   return (
-    <main className={styles.main}>
-      <h1>Create Link</h1>
-      
-    </main>
+    <div className={styles.main_container}>
+      <Link_Shortener userId="" />
+    </div>
   )
 }
-export default Create_Link
