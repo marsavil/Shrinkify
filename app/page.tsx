@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 export default function Home() {
   const router = useRouter();
   const { userId } = useAuth();
-  //if (userId) redirect(`/${userId}/home`)
+  if (userId) redirect(`/${userId}/home`)
   return (
     <main className={styles.main}>
       <div className={styles.introduction}>
