@@ -8,34 +8,43 @@ import Link_Shortener from "@/components/shared/linkShortener/Link_Shortener";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-
 export default function Home() {
   const router = useRouter();
   const { userId } = useAuth();
-  if (userId) redirect(`/${userId}/home`)
+  //if (userId) redirect(`/${userId}/home`)
   return (
     <main className={styles.main}>
-      <div>
-        <h3 className={styles.introduction}>Create your own short links to share your content 🔗🚀</h3>
+      <div className={styles.introduction}>
+        <h3 className={styles.introduction_text}>
+          Create your own short links to share your content 🔗🚀
+        </h3>
       </div>
       <div className={styles.brand}>
-        <Image 
-          src={'/assets/shrinkify_text.svg'}
+        <Image
+          src={"/assets/shrinkify_text.svg"}
           width={200}
           height={78}
           alt="Brand"
         />
+        <h1 className={styles.brand_text}>Free link shortener</h1>
       </div>
       <div className={styles.options}>
-        <p className={styles.message}> Feel free to start creating your links immediately, or log in to save every link you create. By logging in, you can maintain control over your links, access their performance metrics, and manage them more effectively.</p>
+        <div className={styles.message}></div>
+        <p className={styles.message_text}>
+          {" "}
+          Feel free to start creating your links immediately, or log in to save
+          every link you create. By logging in, you can maintain control over
+          your links, access their performance metrics, and manage them more
+          effectively.
+        </p>
         <div className={styles.login}>
-        <Button 
-          type="submit" 
-          className={styles.btn}
-          onClick={() => router.push('/sign-up')}
-        >
-          Log-in
-        </Button>
+          <Button
+            type="submit"
+            className={styles.btn}
+            onClick={() => router.push("/sign-up")}
+          >
+            Log-in
+          </Button>
         </div>
       </div>
       <div className={styles.shortener}>
@@ -44,4 +53,3 @@ export default function Home() {
     </main>
   );
 }
-

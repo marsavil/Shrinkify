@@ -1,11 +1,18 @@
+.client {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 .input {
   cursor: pointer;
   border: none;
-  height: 25px;
-  background-color:  #7eca67 ;
+  height: 40px;
+  width: 300px;
+  background-color:  #ffffff ;
   border-radius: 8px;
   outline: none;
   margin-right: 8px;
+
 }
 @media screen and (max-width: 425px){
   .input{
@@ -16,7 +23,7 @@
   background-color: #5bd375;
   border-radius: 8px;
 }
-.result {
+.result { 
   font-size: large;
   color: azure;
 }

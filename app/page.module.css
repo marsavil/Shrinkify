@@ -4,17 +4,52 @@
   align-items: center;
   gap: 10px;
 }
-
 .introduction {
+  display: flex;
+  position: relative;
+}
+.introduction_text {
   font-size: small;
   font-weight: 400;
   margin-left: 5px;
   color: aquamarine;
 }
-@media screen and (min-width: 320px){
-  .introduction{
+.brand {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: calc(100% - 20rem);
+  background: linear-gradient(45deg, #000 5%, #478a6c 55%, #000 95%);
+  /* gap: 10rem; */
+  align-items: center;
+}
+.brand_text {
+  font-size: 40px;
+  color: whitesmoke;
+}
+@media screen and (min-width: 768px) {
+  .brand {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .brand {
+    width: 100%;
+    gap: 1rem;
+    font-size: 10px;
+    background: linear-gradient(45deg, #000 5%, #478a6c 55%, #000 100%);
+  }
+  .brand_text {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .introduction_text {
     font-size: 0.75rem;
   }
+  /* .brand {
+    width: fit-content
+  } */
 }
 .shortener {
   display: flex;
@@ -32,45 +67,60 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 100px;
+  width: 90%;
+  gap: 90px;
   margin-top: 60px;
 }
-.message {
-  font-size: medium;
+.message{
+  width: 80%
+}
+.message_text {
+  font-size: large;
+  line-height:30px;
   font-weight: 400;
   max-width: 300px;
   margin-left: 5px;
   color: whitesmoke;
 }
-@media screen and (min-width: 425px){
-  .message{
+@media screen and (max-width: 768px) {
+  .message {
     max-width: 200px;
   }
+  .options {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
-@media screen and (min-width: 375px){
-  .message{
+@media screen and (min-width: 375px) {
+  .message {
     max-width: 150px;
   }
 }
-@media screen and (min-width: 320px){
-  .message{
+@media screen and (min-width: 320px) {
+  .message {
     max-width: 125px;
+  }
+  .btn {
+    width: 1;
   }
 }
 .login {
   display: flex;
-  width: 120px;
+  width: 100%;
+  justify-content: center;
 }
 .btn {
-  color: rgb(173, 253, 80);
+  color: rgb(255, 255, 255);
   max-height: 50px;
-  max-width: 100px;
-  padding: 15px;
+  max-width: 100%x;
+  padding: 20px 30px;
+  line-height: 10px;
+  font-size: 20px;
   background: #0d1813;
   border-radius: 15px;
 }
 .btn:hover {
-  color:#0d1813;
+  color: #0d1813;
   background-color: rgb(173, 253, 80);
   cursor: pointer;
 }

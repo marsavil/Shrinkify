@@ -18,17 +18,20 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const user = await currentUser();
+  const { id } = user;
   return (
-          <div className="main_container">
-            <div className='layout_main'>
-              <div className="layout_primary">
-              <Topbar userId={user?.id || ''} />
-              </div>
-              <div className="layout_wrapper">
-              {children}
-              </div>
-            </div>
-            <SideNav />
-          </div>
+    <main className="main_container">
+      <div className="sidebar_container">
+        <SideNav />
+      </div>
+      <div className="layout_primary">
+        <div className="topbar_container">
+          <Topbar userId={id || ""} />
+        </div>
+        <div className="content_container">
+          {children}
+        </div>
+      </div>
+    </main>
   );
 }

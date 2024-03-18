@@ -7,30 +7,41 @@ import { FiMenu } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function SideNav() {
   const pathname = usePathname();
   const router = useRouter();
+  const [open, setOpen] = useState(false);
   const { userId } = useAuth();
+
+  const handleClick = (e: any) => {
+    setOpen(!open);
+  };
 
   return (
     <>
       <section className={styles.side_nav}>
-        <div className={styles.menu}>
-          <Image
-            src="/assets/shrinkify.svg"
-            width={50}
-            height={50}
-            alt="Shrink Logo"
-            className={styles.logo}
-          />
+        <div className={styles.side_nav_head}>
+          <Link href={"/"}>
+            <Image
+              src="/assets/shrinkify_gradient.svg"
+              width={50}
+              height={50}
+              alt="Shrink Logo"
+              className={styles.logo}
+            />
+          </Link>
+
           <Button
-          className={styles.button}
-          onClick={() => router.push(`/${userId}/links/create`)}
+            className={styles.button}
+            onClick={() => router.push(`/${userId}/links/create`)}
           >
-          Create Link
+            Create Link
           </Button>
-          <div className={styles.separator} />
+        </div>
+        <div className={styles.separator} />
+        <div className={styles.menu}>
           <div className={styles.links_group}>
             {sideNavLinks.map((link) => {
               return (
@@ -51,17 +62,40 @@ export default function SideNav() {
         </div>
       </section>
       <section className={styles.side_nav_mobile}>
-        <div className={styles.menu_dropdown}>
-          <FiMenu size={30} color="#5bd375" />
+        <div className={styles.menu_head}>
+          <Button onClick={handleClick} className={styles.drop_btn}>
+            <FiMenu size={30} color="#5bd375" />
+          </Button>
+          <Link href={"/"}>
+            <Image
+              src="/assets/shrinkify_gradient.svg"
+              width={40}
+              height={40}
+              alt="Shrink Logo"
+              className={styles.logo}
+            />
+          </Link>
         </div>
-        <Image
-          src="/assets/shrinkify.svg"
-          width={40}
-          height={40}
-          alt="Shrink Logo"
-          className={styles.logo}
-        />
       </section>
+      {open ? (
+        <div className={styles.menu_options}>
+          {sideNavLinks.map((link) => {
+            return (
+              <Link href={`/${userId}${link.route}`} key={link.label}>
+                <div className={styles.drop_menu_link}>
+                  <Image
+                    src={link.imgURL}
+                    width={15}
+                    height={15}
+                    alt={link.label}
+                  />
+                  <p className={styles.text}>{link.label}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      ) : null}
     </>
   );
 }

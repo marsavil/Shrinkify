@@ -1,53 +1,38 @@
-@import 'normalize.css';
+
 html {
   box-sizing: border-box;
 }
 body {
   background-color: #000;
   margin: 0;
-  text-decoration: none !important;
+}
+a {
+  text-decoration: none;
+  color: #fff;
 }
 .main_container {
   display: flex;
-  position: relative;
-  height: 100vh;
-}
-.layout_main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  box-sizing: border-box; 
-}
-.container {
-  display: flex;
   flex-direction: row;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  /* overflow: hidden; */
 }
-@media only screen and (min-width: 769px) {
-  .layout_primary {
-    display: flex;
-    flex-grow: 1; /* Que ocupe todo el ancho disponible */
-  }
+.sidebar_container {
+  display: flex;
+
 }
 .layout_primary {
-  position: sticky;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   top: 0;
-  z-index: 30;
   box-sizing: border-box;
 }
-.layout_wrapper {
+
+.topbar_container {
   display: flex;
-  flex-flow: row;
-  align-items: center;
-  justify-content: flex-end;
-  flex:1;
-  background-color: #202020;
 }
-@media screen and (min-width: 769p) {
-  .layout_wrapper {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-  }
+.content_container {
+  display: flex;
 }
