@@ -18,6 +18,10 @@ export default function SideNav() {
   const handleClick = (e: any) => {
     setOpen(!open);
   };
+  const handleRedirect = (route: string) => {
+    setOpen(false); // Cerrar el menú al hacer clic en un enlace
+    router.push(`/${userId}${route}`);
+  };
 
   return (
     <>
@@ -79,10 +83,13 @@ export default function SideNav() {
       </section>
       {open ? (
         <div className={styles.menu_options}>
-          {sideNavLinks.map((link) => {
+          {sideNavLinks.map((link, index) => {
             return (
-              <Link href={`/${userId}${link.route}`} key={link.label}>
-                <div className={styles.drop_menu_link}>
+              
+                <div 
+                onClick={() => handleRedirect(link.route)}
+                  key={index}
+                  className={styles.drop_menu_link}>
                   <Image
                     src={link.imgURL}
                     width={15}
@@ -91,7 +98,7 @@ export default function SideNav() {
                   />
                   <p className={styles.text}>{link.label}</p>
                 </div>
-              </Link>
+
             );
           })}
         </div>
