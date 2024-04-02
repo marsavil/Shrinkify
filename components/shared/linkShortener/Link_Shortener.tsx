@@ -32,7 +32,7 @@ const Link_Shortener = ({ userId }: { userId: string }) => {
   const handleClick = (e: any) => {
     setShortUrl("");
     router.refresh();
-  }
+  };
 
   return (
     <div className={styles.main}>
@@ -50,19 +50,25 @@ const Link_Shortener = ({ userId }: { userId: string }) => {
         ) : null}
         {shortUrl ? (
           <section className={styles.result}>
-            <h2 className={styles.message}>Here is your Link 😉</h2>
-            <span id="content">{`${baseUrl}${shortUrl}`}</span>
-            <Copy_Button
-              content={copiedContent}
-              onCopy={handleCopy}
-              copied={copied}
-            >
-              <AiOutlineCopy
-                color={copied ? "green" : "white"}
-                className={styles.copy}
-              />
-            </Copy_Button>
-            <Button onClick={handleClick} className={styles.button}>Create new link</Button>
+            <h2 className={styles.message}>Here is your Link 😉 👇</h2>
+            <div className={styles.link}>
+              <h4 id="content">{`${baseUrl}${shortUrl}`}</h4>
+              <Copy_Button
+                content={copiedContent}
+                onCopy={handleCopy}
+                copied={copied}
+              >
+                <AiOutlineCopy
+                  color={copied ? "blue" : "white"}
+                  className={styles.copy}
+                  size={25}
+                />
+              </Copy_Button>
+            </div>
+
+            <Button onClick={handleClick} className={styles.button_create}>
+              Create new link
+            </Button>
           </section>
         ) : (
           <span className={styles.input}>{shortUrl}</span>

@@ -18,10 +18,19 @@
   .input{
     max-width: 200px;
   }
+  .result{
+    flex-direction: column;
+  }
 }
 .button {
-  background-color: #5bd375;
+  color: whitesmoke;
+  background-color: #1e1bcf;
   border-radius: 8px;
+}
+.button:hover{
+  color: #1e1bcf;
+  background-color: rgb(136, 155, 207);
+  cursor: pointer;
 }
 .result { 
   font-size: large;
@@ -37,14 +46,36 @@
 }
 .result {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 15px;
   gap: 25px;
 }
+.link {
+  display: flex;
+  flex-direction: row;
+  background-color: #1e1bcf6b;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
 @media screen and (max-width: 425px){
   .result{
     flex-direction: column;
   }
+}
+.button_create {
+  font-size: 20px;
+  color: whitesmoke;
+  background-color: #1e1bcf;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.button_create:hover{
+  color: #1e1bcf;
+  background-color: rgb(136, 155, 207);
+  cursor: pointer;
 }

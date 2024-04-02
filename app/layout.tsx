@@ -21,7 +21,7 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${inter.className} `}>
+        <body className={`${inter.className} container`}>
           {children}
         </body>
       </html>
