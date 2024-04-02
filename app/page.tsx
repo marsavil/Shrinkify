@@ -22,8 +22,8 @@ export default function Home() {
       <div className={styles.brand}>
         <Image
           src={"/assets/shrinkify.png"}
-          width={250}
-          height={99}
+          width={220}
+          height={87}
           alt="Brand"
         />
         <h1 className={styles.brand_text}>Free link shortener</h1>

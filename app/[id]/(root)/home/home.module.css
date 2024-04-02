@@ -1,7 +1,32 @@
 .main_container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  max-width: 100vw;
+  max-height: 90vh;
+  align-items:flex-start;
+  padding-left: 10rem;
+  padding-top: 20px;
   width: 100%;
   height: 100vh;
+}
+.service_group {
+  display: grid;
+  align-items: center;
+  max-width:100vw;
+  gap: 20px;
+}
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.description {
+  color: whitesmoke;
+  font-size: medium;
+}
+@media only screen and (max-width: 768px) {
+  .main_container {
+    padding-left: 0;
+  }
 }

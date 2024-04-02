@@ -60,7 +60,7 @@ const Topbar = ({ userId }: { userId: string }) => {
         ) : (
           <FiSearch
             size={20}
-            color="#5bd375"
+            color="#9ca7da"
             onClick={handleSearchClick} // Agregar onClick para mostrar el input de búsqueda al hacer clic en el icono de búsqueda
           />
         )}
@@ -71,8 +71,8 @@ const Topbar = ({ userId }: { userId: string }) => {
               <span className={styles.username}>{user?.username}</span>
               <SignOutButton signOutCallback={() => router.push('/')}>
                 <div className={styles.user}>
-                  <PiSignOut size={30} color="#5bd375" />
-                  <p className={styles.logout}>Logout</p>
+                  <PiSignOut size={30} color="#9ca7da" />
+                  {/* <p className={styles.logout}>Logout</p> */}
                 </div>
               </SignOutButton>
             </div>
@@ -81,7 +81,7 @@ const Topbar = ({ userId }: { userId: string }) => {
           <div >
             <Link href="/sign-up" className={styles.user}>
               <PiSignIn size={30} color="#5bd375" />
-              <span className={styles.login}>Log in</span>
+              {/* <span className={styles.login}>Log in</span> */}
             </Link>
           </div>
         )}

@@ -1,18 +1,20 @@
 .topbar {
   display: flex;
   justify-content: flex-end;
+  position: sticky;
   width: 100vw;
   height: 5.6rem;
-  padding-left: 3.2rem;
+  /* padding: 3.2rem; */
   background-color: #131212;
-  border-bottom: 0.1rem solid #397a4e;
+  /* border-bottom: 0.1rem solid #1e1bcf; */
+  z-index: 30;
 }
 .topbar_items {
   display: flex;
   flex-direction: row;
   gap: 30px;
   align-items: center;
-  margin-right: 80px;
+  /* margin-right: 80px; */
 }
 .user {
   display: flex;
@@ -22,29 +24,34 @@
 .username {
   font-size: 1rem;
   font-weight: 200;
-  color: #5bd375;
+  color: #bcbbe4;
 }
+
 
 .search_input {
   border: 1px solid #2D3748; 
-  background-color: #8bc076; 
-  color: #CBD5E0; 
+  background-color: #9ca7da; 
+  color: #060f1a; 
   outline: none; 
   padding: 5px;
+  width: 200px;
 }
 .logout {
   font-size: 1rem;
   font-weight: 600;
-  color: #e70909;
+  color: #9ca7da;
   cursor: pointer;
 }
 .login {
   font-size: 1rem;
   font-weight: 600;
-  color: #5bd375;
+  color: #a3a2e4;
   cursor: pointer;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 510px) {
+  .topbar{
+    padding-right: 0px;
+  }
   .username {
     display: none;
   }
@@ -52,9 +59,15 @@
     display: none;
   }
   .search_input {
-    width: 100px;
+    width: 150px;
+    z-index: 31;
   }
   .topbar_items {
     margin-right: 35px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .search_input {
+    width: 80px;
   }
 }

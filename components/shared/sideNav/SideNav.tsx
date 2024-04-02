@@ -29,7 +29,7 @@ export default function SideNav() {
         <div className={styles.side_nav_head}>
           <Link href={"/"}>
             <Image
-              src="/assets/shrinkify_gradient.svg"
+              src="/assets/scissor.png"
               width={50}
               height={50}
               alt="Shrink Logo"
@@ -57,7 +57,10 @@ export default function SideNav() {
                       height={25}
                       alt={link.label}
                     />
+                    <div>
                     <p className={styles.text}>{link.label}</p>
+                    </div>
+                    
                   </div>
                 </Link>
               );
@@ -68,11 +71,11 @@ export default function SideNav() {
       <section className={styles.side_nav_mobile}>
         <div className={styles.menu_head}>
           <Button onClick={handleClick} className={styles.drop_btn}>
-            <FiMenu size={30} color="#5bd375" />
+            <FiMenu size={30} color="#1e1bcf" />
           </Button>
           <Link href={"/"}>
             <Image
-              src="/assets/shrinkify_gradient.svg"
+              src="/assets/scissor.png"
               width={40}
               height={40}
               alt="Shrink Logo"
