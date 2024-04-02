@@ -5,6 +5,7 @@ import Link from "../models/link.model";
 import User from "../models/user.model";
 import { connectToDB } from "../mongoose";
 import { fetchUser } from "./user.actions";
+
 export async function generateLink (url: string, userId: string){
   console.log(url, userId)
   const shortUrl = Math.random().toString(36).substring(2,7);
@@ -40,6 +41,7 @@ export async function generateLink (url: string, userId: string){
   }
 }
 export async function fetchLink (id: string){
+
   try {
     connectToDB();
     const link = await Link.findOne({shortUrl: id }).populate({
@@ -60,5 +62,26 @@ export async function fetchLink (id: string){
     console.log(error.message)
     throw new Error(`Failed to fetch link: ${error.message}`)
   }
+}
+export async function fetchUserLinks ( id: string ){
+  try {
+    connectToDB();
+    const user = await User.findOne({id});
+    const { links} = user;
+    return links
+  } catch (error: any) {
+    throw new Error(`Failed to fetch links: ${error.message}`)
+  }
+}
 
+export async function fetchLinkById(id: any) {
+  
+  
+  try {
+    connectToDB();
+    const link = await Link.findById(id);
+    return link
+  } catch (error:any) {
+    throw new Error(`Failed to fetch link: ${error.message}`)
+  }
 }
