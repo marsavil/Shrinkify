@@ -9,6 +9,7 @@
 }
 .column1 {
   display: flex;
+  left: 0;
   padding-top: 10px;
 }
 .favicon {
@@ -73,7 +74,7 @@
   .main_container{
     width: 85%;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: 20px;
   }
 }
