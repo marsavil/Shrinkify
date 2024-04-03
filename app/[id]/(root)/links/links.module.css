@@ -11,8 +11,9 @@
 }
 @media  only screen and (min-width: 1024px) {
   .main_container{
-    justify-content: flex-end;
-    margin-top: 30px;
+    /* justify-content: flex-end; */
+    margin-top: 85px;
     margin-left: 15rem;
   }
 }
+
