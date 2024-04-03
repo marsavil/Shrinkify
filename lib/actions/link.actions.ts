@@ -44,18 +44,10 @@ export async function fetchLink (id: string){
 
   try {
     connectToDB();
-    const link = await Link.findOne({shortUrl: id }).populate({
-      path: "user",
-      model: User,
-      select: "id username name image"})
-      // .populate({
-      //   path: "links",
-      //   model: Link,
-      //   select: "_id url shortUrl"
-      // })
+    const link = await Link.findOne({shortUrl: id })
       link.clicks = link.clicks + 1;
       console.log(link.url)
-      link.save();
+      await link.save();
 
       return link.url
   } catch (error: any) {

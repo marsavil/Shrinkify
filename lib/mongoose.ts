@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 let isConnected =false;
 
 export const connectToDB = async () => {
-  console.log(process.env.MONGO_URL)
   mongoose.set('strictQuery', true);
 
   if(!process.env.MONGO_URL) return console.log('MONGO_URL not found');

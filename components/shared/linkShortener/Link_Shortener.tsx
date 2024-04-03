@@ -5,6 +5,7 @@ import { FormEvent, useRef, useState } from "react";
 import Copy_Button from "../copyButton/Copy_Button";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { formatUrl } from "@/lib/utils";
 
 const Link_Shortener = ({ userId }: { userId: string }) => {
   const router = useRouter();
@@ -17,13 +18,18 @@ const Link_Shortener = ({ userId }: { userId: string }) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const url = inputRef.current?.value; // Asegúrate de manejar el caso en que inputRef.current sea null
+    
     if (!url) return;
+    if (url){
+      const completeUrl = formatUrl(url)
+      const newUrl = await generateLink(completeUrl, userId || "");
+      setShortUrl(newUrl.shortUrl);
+      setCopiedContent(`${baseUrl}${newUrl.shortUrl}`);
+      setCopied(false);
+    }
     if (shortUrl) return;
     //Peticion a la API
-    const newUrl = await generateLink(url, userId || "");
-    setShortUrl(newUrl.shortUrl);
-    setCopiedContent(`${baseUrl}${newUrl.shortUrl}`);
-    setCopied(false);
+    
   };
   const handleCopy = () => {
     navigator.clipboard.writeText(`${baseUrl}${shortUrl}`);

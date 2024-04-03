@@ -41,3 +41,41 @@ export function formatThreadCount(count: number): string {
     return `${threadCount} ${threadWord}`;
   }
 }
+export function formatUrl(url: string): string {
+  const fullUrl =
+    url.startsWith("http://www.") ||
+    url.startsWith("https://www.") ||
+    url.startsWith("https://")
+      ? url
+      : `https://www.${url}`;
+  return fullUrl;
+}
+
+export function getBaseUrl(url: string) {
+  try {
+    // Verifica si la URL tiene un path específico después del dominio
+    const hasPath = url.indexOf("/", url.indexOf("://") + 3) !== -1;
+
+    // Si la URL tiene un path específico, obtén la URL base incluyendo el protocolo y el dominio
+    if (hasPath) {
+      return url.substring(0, url.indexOf("/", url.indexOf("://") + 3));
+    }
+
+    // Si la URL no tiene un path específico, devuelve la URL completa como la URL base
+    return url;
+    
+  } catch (error) {
+    // Si ocurre un error al analizar la URL (por ejemplo, la URL es inválida), muestra un mensaje de error y devuelve null
+    console.error("Error parsing URL:", error);
+    return null;
+  }
+}
+
+export function getInitial(url: string){
+  try {
+    const start = url.indexOf("://") +3 
+    return url[start]
+  } catch (error) {
+    console.error("Error getting the initia:", error)
+  }
+}
