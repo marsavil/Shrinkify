@@ -1,7 +1,7 @@
 .side_nav {
   display: flex;
   flex-direction: column;
-  position : absolute;
+  position : fixed;
   padding: 1.6rem 1.2rem ;
   /* border-right: 0.1rem solid #1e1bcf; */
   min-width: 10rem;

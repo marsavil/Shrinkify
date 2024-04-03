@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "../../globals.css";
 import SideNav from "@/components/shared/sideNav/SideNav";
 import Topbar from "@/components/shared/topBar/Topbar";
+import { redirect } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const user = await currentUser();
+  if (!user ) redirect('/');
   const { id } = user;
   return (
     <main className="main_container">

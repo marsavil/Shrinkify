@@ -3,11 +3,13 @@ import Link_Shortener from "@/components/shared/linkShortener/Link_Shortener";
 import styles from './home.module.css';
 import { useAuth } from "@clerk/nextjs";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
 
 export default  function Home() {
   const { userId } = useAuth(); 
-
+  
+  if ( !userId ) redirect('/')
   return (
     <div className={styles.main_container}>
       <div className={styles.service_group}>
