@@ -7,7 +7,6 @@ import { connectToDB } from "../mongoose";
 
 export async function fetchUser(userId: string) {
   try {
-    console.log(userId)
     connectToDB();
     const user = await User.findOne({ id: userId })
     // .populate([{

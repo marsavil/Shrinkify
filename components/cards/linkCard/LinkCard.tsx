@@ -7,11 +7,14 @@ import Link from "next/link";
 import { PiCursorClick } from "react-icons/pi";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 import { AiOutlineCopy } from "react-icons/ai";
-import Copy_Button from "@/components/shared/copyButton/Copy_Button";
+import { FaRegEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { getBaseUrl, getInitial } from "@/lib/utils";
+import { redirect, usePathname, useRouter } from "next/navigation";
 
 const LinkCard = ({ link }: any) => {
+  const pathname = usePathname();
+  const router = useRouter()
   const baseUrl = process.env.NEXT_PUBLIC_SHRINK;
   const [lnk, setLink] = useState(null);
   const [copied, setCopied] = useState(false);
@@ -46,6 +49,9 @@ const LinkCard = ({ link }: any) => {
       navigator.clipboard.writeText(`${baseUrl}${lnk?.shortUrl}`);
       setCopied(true);
     };
+    const handleRedirect = () => {
+      router.push(`/${lnk._id}/edit`)
+    }
     return (
       <div className={styles.main_container}>
         <div className={styles.column1}>
@@ -81,12 +87,18 @@ const LinkCard = ({ link }: any) => {
         </div>
         <div className={styles.column3}>
           <div
-            className={styles.btn}
+            className={styles.copy_btn}
             onClick={handleCopy}
             content={baseUrl + lnk.shortUrl}
           >
             <AiOutlineCopy color={copied ? "blue" : "white"} size={25} />
             <h3 className={styles.copy_text}>Copy</h3>
+          </div>
+          <div 
+            className={styles.edit_btn}
+            onClick={handleRedirect}
+            >
+            <FaRegEdit color={"white"} size={25}/>
           </div>
         </div>
       </div>

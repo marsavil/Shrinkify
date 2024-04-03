@@ -57,8 +57,9 @@
 .column3 {
   display: flex;
   padding-top:10px;
+  gap: 5px
 }
-.btn{
+.copy_btn{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,12 +69,27 @@
   margin-bottom: 10px;
   background-color: rgba(4, 52, 209, 0.781);
 }
-.btn:hover{
+.copy_btn:hover{
   background-color: rgba(4, 52, 209, 0.881);
+  cursor: pointer;
 }
 .copy_text {
   font-size: large;
   font-weight: 400;
+}
+.edit_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:70px;
+  height: 50px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: rgba(4, 52, 209, 0.452);
+}
+.edit_btn:hover{
+  background-color: rgba(4, 52, 209, 0.552);
+  cursor: pointer;
 }
 @media only screen and (max-width: 425px) {
   .column1 {

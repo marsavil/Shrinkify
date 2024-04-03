@@ -7,7 +7,6 @@ interface Props {
 }
 
 const UserIcon = ({ userImage, size }: Props) => {
-  console.log(userImage)
   return (
     <Image 
       src={userImage} 
