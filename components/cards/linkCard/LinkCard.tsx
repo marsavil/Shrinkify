@@ -11,6 +11,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { getBaseUrl, getInitial } from "@/lib/utils";
 import { redirect, usePathname, useRouter } from "next/navigation";
+import { verify } from "crypto";
 
 const LinkCard = ({ link }: any) => {
   const pathname = usePathname();
@@ -19,6 +20,7 @@ const LinkCard = ({ link }: any) => {
   const [lnk, setLink] = useState(null);
   const [copied, setCopied] = useState(false);
   const [copiedContent, setCopiedContent] = useState("");
+  const [verified, setVerified]= useState(false)
 
   useEffect(() => {
     const fetchLinkData = async () => {
@@ -31,11 +33,25 @@ const LinkCard = ({ link }: any) => {
         console.error("Error fetching link data:", error);
       }
     };
+
     if (link) {
       fetchLinkData();
     }
-  }, [link, baseUrl]);
 
+  }, [link, baseUrl]);
+  useEffect(() => {
+    const verifyFavicon = async () => {
+      if (lnk) {
+        const favicon = await fetch(`${getBaseUrl(lnk.url)}/favicon.ico`);
+        if (favicon.status === 200) {
+          console.log(favicon.status);
+          setVerified(true);
+        }
+      }
+    };
+    verifyFavicon();
+  }, [lnk]);
+  
   if (lnk) {
     const dateDB = new Date(lnk.created);
     const day = dateDB.getDate();
@@ -46,7 +62,7 @@ const LinkCard = ({ link }: any) => {
     const favicon = `${baseDestination}/favicon.ico`;
     const initial = getInitial(lnk.url);
     const handleCopy = () => {
-      navigator.clipboard.writeText(`${baseUrl}${lnk?.shortUrl}`);
+      navigator.clipboard.writeText(`${copiedContent}`);
       setCopied(true);
     };
     const handleRedirect = () => {
@@ -55,14 +71,23 @@ const LinkCard = ({ link }: any) => {
     return (
       <div className={styles.main_container}>
         <div className={styles.column1}>
-          <img
+          {verified ? (<img
             src={favicon}
             width={40}
             height={40}
             alt="site favicon"
             loading="lazy"
             className={styles.favicon}
-          />
+          />):
+          (<Image 
+              src={`/assets/${initial}.png`}
+              width={40}
+              height={40}
+              alt="Site initial"
+              className={styles.no_favicon}
+            />)
+        }
+          
         </div>
         <div className={styles.column2}>
           <div className="">

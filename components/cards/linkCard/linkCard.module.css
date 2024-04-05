@@ -23,6 +23,12 @@
   border: rgba(0, 0, 0, 0.466) solid 1px;
   background-color: rgba(0, 0, 0, 0.842);
 }
+.no_favicon {
+  padding: 7px;
+  border-radius: 100%;
+  border: rgba(0, 0, 0, 0.466) solid 1px;
+  background-color: rgba(25, 210, 243, 0.842);
+}
 .column2 {
   display: flex;
   width:60%;  

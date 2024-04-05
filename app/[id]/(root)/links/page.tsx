@@ -15,11 +15,15 @@ export default  function Page() {
   if ( !userId ) router.push('/')
 
   useEffect(() => {
+    
     const fetchLinksData = async () => {
       const data = await fetchUserLinks(userId);
       setLinks(data)
     }
-    fetchLinksData();
+    if (userId) {
+      fetchLinksData()
+    }
+    ;
   }, [userId])
 
 

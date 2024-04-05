@@ -68,7 +68,6 @@
   align-items:flex-start;
   padding-left: 5px;
   gap: 10px;
-  border-radius: 15px;
 }
 
 .link {
@@ -77,14 +76,13 @@
   width: 10rem;
   align-items: center;
   gap: 10px;
-  border-radius: 15px;
   padding-left: 10px;
   box-sizing: inherit;
 }
 .link:hover {
   background-color:  rgba(136, 155, 207, 0.548);;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 5px;
   color: #000000;
   .icon {
     filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='colorize'><feColorMatrix type='matrix' values='1 0 0 0 0   0 1 0 0 0   0 0 1 0 0   0 0 0 1 0'/></filter></svg>#colorize");
