@@ -14,7 +14,7 @@ import { redirect, usePathname, useRouter } from "next/navigation";
 
 const LinkCard = ({ link }: any) => {
   const pathname = usePathname();
-  const router = useRouter()
+  const router = useRouter();
   const baseUrl = process.env.NEXT_PUBLIC_SHRINK;
   const [lnk, setLink] = useState(null);
   const [copied, setCopied] = useState(false);
@@ -50,8 +50,8 @@ const LinkCard = ({ link }: any) => {
       setCopied(true);
     };
     const handleRedirect = () => {
-      router.push(`/${lnk._id}/edit`)
-    }
+      router.push(`/${lnk._id}/edit`);
+    };
     return (
       <div className={styles.main_container}>
         <div className={styles.column1}>
@@ -65,15 +65,16 @@ const LinkCard = ({ link }: any) => {
           />
         </div>
         <div className={styles.column2}>
-          <h2 className="">{lnk.title || ""}</h2>
-          <Link href={baseUrl + lnk.shortUrl} className={styles.short_link} />
+          <div className="">
+            <h2>{lnk.title || ""}</h2>
+          </div>
+          <div >
+            <Link href={lnk.url} className={styles.url}>{lnk.url}</Link>
+          </div>
+          <div >
+            <Link href={baseUrl + lnk.shortUrl} className={styles.short_url}>{baseUrl + lnk.shortUrl}</Link>
+          </div>
 
-          <Link href={lnk.url} className={styles.url}>
-            {lnk.url}
-          </Link>
-          <Link href={baseUrl + lnk.shortUrl} className={styles.short_url}>
-            {baseUrl + lnk.shortUrl}
-          </Link>
           <div className={styles.info}>
             <div className={styles.clicks}>
               <PiCursorClick />
@@ -94,11 +95,8 @@ const LinkCard = ({ link }: any) => {
             <AiOutlineCopy color={copied ? "blue" : "white"} size={25} />
             <h3 className={styles.copy_text}>Copy</h3>
           </div>
-          <div 
-            className={styles.edit_btn}
-            onClick={handleRedirect}
-            >
-            <FaRegEdit color={"white"} size={25}/>
+          <div className={styles.edit_btn} onClick={handleRedirect}>
+            <FaRegEdit color={"white"} size={25} />
           </div>
         </div>
       </div>
