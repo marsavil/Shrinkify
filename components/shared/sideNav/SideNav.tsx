@@ -56,6 +56,7 @@ export default function SideNav() {
                       width={25}
                       height={25}
                       alt={link.label}
+                      className={styles.icon}
                     />
                     <div>
                     <p className={styles.text}>{link.label}</p>

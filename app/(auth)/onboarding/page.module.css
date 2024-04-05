@@ -19,11 +19,11 @@
   margin-top: 0.75rem; /* Espacio superior equivalente a mt-3 en Tailwind CSS */
   font-size: 1rem; /* Tamaño de fuente equivalente a text-base en Tailwind CSS */
   font-weight: 400; /* Grosor de fuente equivalente a regular en Tailwind CSS */
-  color: #61bd92; /* Color de texto equivalente a text-light-2 en Tailwind CSS */
+  color: #1e1bcf; /* Color de texto equivalente a text-light-2 en Tailwind CSS */
 }
 .container {
   margin-top: 2.25rem; /* Espacio superior equivalente a mt-9 en Tailwind CSS */
-  background-color: #153834; /* Color de fondo equivalente a bg-dark-2 en Tailwind CSS */
+  background-color: rgb(97, 128, 212);
   padding: 2.5rem; /* Relleno equivalente a p-10 en Tailwind CSS */
   border-radius: 7.5px;
 }

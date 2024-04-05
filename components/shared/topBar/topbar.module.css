@@ -1,23 +1,27 @@
 .topbar {
   display: flex;
-  justify-content: flex-end;
   position: fixed;
   width: 100vw;
   height: 5.6rem;
-  /* padding: 3.2rem; */
   background-color: #131212;
-  /* border-bottom: 0.1rem solid #1e1bcf; */
   z-index: 30;
 }
 .topbar_items {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
   gap: 30px;
   align-items: center;
-  /* margin-right: 80px; */
 }
+.topbar_items > :last-child {
+  margin-right: calc(2%); /* Ajusta el margen derecho según sea necesario */
+}
+
+
 .user {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
 }
@@ -35,12 +39,6 @@
   outline: none; 
   padding: 5px;
   width: 200px;
-}
-.logout {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #9ca7da;
-  cursor: pointer;
 }
 .login {
   font-size: 1rem;
@@ -70,4 +68,4 @@
   .search_input {
     width: 80px;
   }
-}
+} 

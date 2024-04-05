@@ -16,8 +16,6 @@ const Topbar = ({ userId }: { userId: string }) => {
   const router = useRouter();
   const [user, setUser] = useState(null);
   const [showSearchInput, setShowSearchInput] = useState(false); // Estado para controlar la visibilidad del input de búsqueda
-
-  console.log(user)
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -72,7 +70,6 @@ const Topbar = ({ userId }: { userId: string }) => {
               <SignOutButton signOutCallback={() => router.push('/')}>
                 <div className={styles.user}>
                   <PiSignOut size={30} color="#9ca7da" />
-                  {/* <p className={styles.logout}>Logout</p> */}
                 </div>
               </SignOutButton>
             </div>
@@ -81,7 +78,6 @@ const Topbar = ({ userId }: { userId: string }) => {
           <div >
             <Link href="/sign-up" className={styles.user}>
               <PiSignIn size={30} color="#5bd375" />
-              {/* <span className={styles.login}>Log in</span> */}
             </Link>
           </div>
         )}

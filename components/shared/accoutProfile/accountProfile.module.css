@@ -56,6 +56,12 @@
   padding: 5px;
 }
 .btn {
-  background-color: #0b311f;
+  color: rgb(255, 255, 255);
+  background: #1e1bcf;
   padding: 7px
+}
+.btn:hover {
+  color: #1e1bcf;
+  background-color: rgb(136, 155, 207);
+  cursor: pointer;
 }
