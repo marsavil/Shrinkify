@@ -39,19 +39,19 @@ const LinkCard = ({ link }: any) => {
     }
 
   }, [link, baseUrl]);
-  useEffect(() => {
-    const verifyFavicon = async () => {
-      if (lnk) {
-        const favicon = await fetch(`${getBaseUrl(lnk.url)}/favicon.ico`);
-        if (favicon.status === 200) {
-          console.log(favicon.status);
-          setVerified(true);
-        }
-      }
-    };
-    verifyFavicon();
-  }, [lnk]);
-  
+  // useEffect(() => {
+  //   const verifyFavicon = async () => {
+  //     if (lnk) {
+  //       const favicon = await fetch(`${getBaseUrl(lnk.url)}/favicon.ico`);
+  //       if (favicon.status === 200) {
+  //         console.log(favicon.status);
+  //         setVerified(true);
+  //       }
+  //     }
+  //   };
+  //   verifyFavicon();
+  // }, [lnk]);
+
   if (lnk) {
     const dateDB = new Date(lnk.created);
     const day = dateDB.getDate();
@@ -71,7 +71,15 @@ const LinkCard = ({ link }: any) => {
     return (
       <div className={styles.main_container}>
         <div className={styles.column1}>
-          {verified ? (<img
+        <img
+            src={favicon}
+            width={40}
+            height={40}
+            alt="site favicon"
+            loading="lazy"
+            className={styles.favicon}
+          />
+          {/* {verified ? (<img
             src={favicon}
             width={40}
             height={40}
@@ -86,7 +94,7 @@ const LinkCard = ({ link }: any) => {
               alt="Site initial"
               className={styles.no_favicon}
             />)
-        }
+        } */}
           
         </div>
         <div className={styles.column2}>
